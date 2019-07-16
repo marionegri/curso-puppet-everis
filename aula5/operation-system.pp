@@ -7,15 +7,6 @@ notify { 'kernel': message => "O sistema operacional eh ${::kernel} versao ${::k
 notify { 'distro': message => "A distribuicao GNU/Linux eh ${::operatingsystem}
    versão ${::operatingsystemrelease}." }
 
-# Obtendo o nome do S.O e a versao do kernel
-# Esses dados estao nos fatos: kernel e kernelversion
-notify { 'kernel': message => "O sistema operacional eh ${::kernel} versao ${::kernelversion}." }
-
-# Obtendo o nome da distro GNU/Linux
-# Esse dados estao nos fatos: operatingsystem e operatingsystemrelease
-notify { 'distro': message => "A distribuicao GNU/Linux eh ${::operatingsystem}
-   versão ${::operatingsystemrelease}." }
-
 # Alguns sysadmins criam o '/home' em particao separada do '/'
 # Vamos testar o fato: mountpoints['/home'],
 # Se existir essa particao, vamos obter o espaco livre, contido
