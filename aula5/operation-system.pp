@@ -22,21 +22,6 @@ if $::mountpoints['/home'] {
   $free_space = $::mountpoints['/']['available_bytes']
 }
 
-# Alguns sysadmins criam o '/home' em particao separada do '/'
-# Vamos testar o fato: mountpoints['/home'],
-# Se existir essa particao, vamos obter o espaco livre, contido
-# no fato mountpoints['/home']['available_bytes']
-if $::mountpoints['/home'] {
-  $free_space = $::mountpoints['/home']['available_bytes']
-}
-# Se entrar no elsif, eh porque o '/home' esta na mesma particao do '/'
-# Vamos testar o fato: mountpoints['/'],
-# E vamos obter o espaco livre, contido
-# no fato mountpoints['/']['available_bytes']
- elsif $::mountpoints['/'] {
-  $free_space = $::mountpoints['/']['available_bytes']
-}
-
 # O espaco requerido eh de 2GB ou 2000000 bytes
 $space_required = 2000000
 
